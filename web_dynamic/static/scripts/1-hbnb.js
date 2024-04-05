@@ -15,6 +15,16 @@ $(document).ready(function() {
   }else {
     checked_amenities = checked_amenities.filter(function(amenity) {
       return amenity.id != amenity_id;
-});
- });
+    });
+  }
+  
+  $('.amenities h4').empty();
+  for (let i = 0; i < checked_amenities.length; i++) {
+    if (checked_amenities.length == 1 || i = checked_amenities - 1) {
+      $('.amenities h4').append(checked_amenities[i].name);
+    } else {
+      $('.amenities h4').append('' + checked_amenities[i].name + ', ');
+    }
+  }
+  });
 });

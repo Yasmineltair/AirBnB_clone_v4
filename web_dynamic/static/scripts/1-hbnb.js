@@ -3,7 +3,7 @@ $(document).ready(function() {
   let $checkboxes = $(".amenities input[type='checkbox']");
   let checked_amenities = [];
   
-  $checkboxes.on('change, function() {
+  $checkboxes.on('change', function() {
     amenity_id = $(this).data('id');
     amenity_name = $(this).data('name');
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
   
   $('.amenities h4').empty();
   for (let i = 0; i < checked_amenities.length; i++) {
-    if (checked_amenities.length == 1 || i = checked_amenities - 1) {
+    if (checked_amenities.length == 1 || i == checked_amenities - 1) {
       $('.amenities h4').append(checked_amenities[i].name);
     } else {
       $('.amenities h4').append('' + checked_amenities[i].name + ', ');

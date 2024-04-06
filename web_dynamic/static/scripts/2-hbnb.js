@@ -19,12 +19,20 @@ $(document).ready(function() {
         }
         $('.amenities h4').empty();
         for (let i = 0; i < checked_amenities.length; i++) {
-            if (checked_amenities.length == 1 || i == checked_amenities.length - 1) {
+            if (checked_amenities.length == 1 || i == checked_amenities - 1) {
                 $('.amenities h4').append(checked_amenities[i].name);
             }else {
                 $('.amenities h4').append('' + checked_amenities[i].name + ', ');
             }
         }
-
+        $.get("http://0.0.0.0:5001/api/v1/status/", function (data, textstatus) {
+            if (textstatus === "success") {
+                if (data.status === "OK") {
+                    $("#api_status").addClass("available");
+                } else {
+                    $("#api_status").removeClass("available");
+                }
+                }
+        });
     });
 });
